@@ -1,0 +1,12 @@
+StageLab V5 生成网址的步骤
+
+1. 解压整个 ZIP，进入能直接看到 index.html 的目录。
+2. 在 GitHub 新建 Public 仓库，例如 stagelab。
+3. Add file → Upload files，上传解压后的全部内容，包含各个文件夹和 .nojekyll。
+4. 提交到 main 分支。确认 index.html 直接在仓库根目录。
+5. Settings → Pages → Source 选择 Deploy from a branch。
+6. Branch 选择 main，文件夹选择 / (root)，点击 Save。
+7. 等待部署完成，在 Pages 页面点击 Visit site，即可取得课件网址。
+
+不要把 ZIP 本身当成网站上传，也不要只上传 index.html。
+完整说明见 README.md。网页在线运行无需安装依赖。

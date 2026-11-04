@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+ <title>StageLab｜看见舞台，看懂空间</title>
+ <meta name="description" content="以《乘风破浪的姐姐》第一季船形舞台为案例，探索双层结构、观众眼点与视线遮挡。">
+ <meta name="theme-color" content="#102a25"><link rel="stylesheet" href="./style.css">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+</head>
+<body>
+ <a class="skip-link" href="#intro">跳到课程内容</a>
+ <div class="scene-shell" id="sceneShell" aria-label="船形舞台三维教学示意">
+  <div class="scene-atmosphere"></div><canvas id="stageCanvas" aria-label="三维船形舞台"></canvas><canvas id="diagramCanvas" hidden aria-label="船形舞台交互图解"></canvas>
+  <div class="spatial-label" id="upperLabel"><i></i><span>上层甲板<small>UPPER DECK</small></span></div>
+  <div class="spatial-label" id="lowerLabel"><i></i><span>下层船舱<small>LOWER CABIN</small></span></div>
+  <div class="spatial-label eye-label" id="eyeLabel"><i></i><span>观众眼点<small>EYE POINT</small></span></div>
+  <div class="scene-credit"><span class="live-dot"></span><span id="renderLabel">空间示意</span><i></i>比例与走位均为教学示意</div>
+ </div>
+
+ <header class="site-header">
+  <a class="brand" href="#intro" aria-label="StageLab 回到开场"><span class="brand-symbol">S<span>·</span>L</span><span class="brand-word">StageLab<small>舞台空间实验室</small></span></a>
+  <nav class="top-nav" aria-label="样章导航"><a href="#anatomy">空间</a><a href="#sightlines">视线</a><a href="#compare">比较</a><a href="#evidence">现场</a></nav>
+  <div class="header-actions"><button class="source-button" data-action="sources">资料 <span>↗</span></button><button class="teacher-start" data-action="teacher"><span class="play-triangle">▶</span><span id="teacherHeaderLabel">教师演示</span></button></div>
+ </header>
+
+ <nav class="chapter-rail" aria-label="章节进度"><a href="#intro" data-chapter="intro"><span>01</span><b>看见整体</b></a><a href="#anatomy" data-chapter="anatomy"><span>02</span><b>进入剖面</b></a><a href="#sightlines" data-chapter="sightlines"><span>03</span><b>沿着视线</b></a><a href="#compare" data-chapter="compare"><span>04</span><b>改变眼点</b></a><a href="#evidence" data-chapter="evidence"><span>05</span><b>回到现场</b></a><a href="#takeaway" data-chapter="takeaway"><span>06</span><b>回看判断</b></a></nav>
+
+ <main id="lesson">
+  <section id="intro" class="chapter hero" data-section="intro">
+   <div class="hero-copy"><p class="eyebrow"><span class="tiny-cross">✳</span> 第一任务：观演关系 <span class="eyebrow-separator">/</span> 样章 02</p><h1>看见舞台。<br><em>看懂空间。</em></h1><p class="hero-description">一艘船，两个表演层。<br>观众能同时看见它们吗？</p><a class="scroll-invitation" href="#anatomy"><span>向下，走进这艘船</span><span class="circle-arrow">↓</span></a></div>
+   <div class="hero-bottom"><span>《乘风破浪的姐姐》第一季<small>SISTERS WHO MAKE WAVES · 2020</small></span><span>滚动观察 · 停留阅读 · 动手比较</span><span class="hero-number">01—06</span></div>
+  </section>
+
+  <section id="anatomy" class="chapter anatomy" data-section="anatomy">
+   <div class="sticky-copy anatomy-copy"><p class="eyebrow">02 / 空间的层次</p><h2>一艘船。<br>两层舞台。</h2><p class="chapter-lead">上层是甲板，下层是船舱。<br>同一时刻，表演可以发生在不同高度。</p><p class="quiet-note">继续向下，转到侧面看一看。</p></div>
+   <div class="anatomy-bottom"><span>上与下，丰富了表演空间。</span><span>看得见什么，还取决于观众在哪里。</span></div>
+  </section>
+
+  <section id="sightlines" class="chapter sightlines" data-section="sightlines">
+   <article class="sticky-copy knowledge-sheet"><p class="eyebrow dark-eyebrow">03 / 观看的条件</p><h2>空间有层次，<br>视线也有代价。</h2><p class="sheet-intro">从一位观众的眼睛，连到表演者的头、腰和脚。检查这条线经过哪里。</p><div class="knowledge-steps"><div><span>01</span><p><strong>眼点</strong>观众眼睛所在的位置。</p></div><div><span>02</span><p><strong>遮挡</strong>视线穿过甲板，目标就被挡住。</p></div><div><span>03</span><p><strong>可见范围</strong>换一个位置，能看见的部分也会改变。</p></div></div><div class="line-legend"><span><i class="visible-line"></i>可见</span><span><i class="blocked-line"></i>被甲板遮挡</span></div><p class="sheet-footnote">外壳透明只为展示内部，不会改变视线的遮挡计算。</p><button class="text-link" data-action="note">展开知识与分析 <span>↗</span></button></article>
+  </section>
+
+  <section id="compare" class="chapter compare" data-section="compare">
+   <article class="sticky-copy compare-sheet"><p class="eyebrow dark-eyebrow">04 / 让位置成为变量</p><h2>换一个位置。<br>再看一次。</h2><div class="view-options" role="group" aria-label="选择观众位置"><button data-view="front" aria-pressed="true">前排</button><button data-view="back" aria-pressed="false">后排</button><button data-view="raised" aria-pressed="false">设想升起</button></div><p id="comparisonDescription" class="comparison-description" aria-live="polite"></p><div class="eye-slider"><label for="eyeHeight">微调眼点高度 <output id="eyeHeightOutput" for="eyeHeight">1.25 m</output></label><input id="eyeHeight" type="range" min="0.8" max="6" value="1.25" step="0.05" aria-describedby="heightNote"><span id="heightNote">数值用于教学比较，不是现场测绘数据。</span></div>
+    <div class="section-diagram"><div class="diagram-title"><span>同一关系，换成剖面读</span><small>示意剖面 · 不按比例测绘</small></div><svg id="crossSection" viewBox="0 0 430 205" role="img" aria-label="观众眼点、双层舞台与视线的联动剖面"></svg></div>
+    <div class="visibility-table"><span>观察位置</span><span>头</span><span>腰</span><span>脚</span><b>上层甲板</b><i id="upper-head"></i><i id="upper-waist"></i><i id="upper-feet"></i><b>下层船舱</b><i id="lower-head"></i><i id="lower-waist"></i><i id="lower-feet"></i></div><p class="hypothesis-note" id="hypothesisNote">“观众席升起”为采访中未实现的设想，仅作教学比较。</p>
+   </article>
+  </section>
+
+  <section id="evidence" class="chapter evidence" data-section="evidence">
+   <div class="evidence-inner"><p class="eyebrow dark-eyebrow">05 / 模型与真实案例</p><div class="evidence-heading"><h2>回到现场，<br>核对我们的理解。</h2><p>模型帮助我们拆解空间。<br>照片和原始资料，帮助我们确认案例。<br><span class="evidence-tag">真实照片</span> 凤凰网娱乐 · 唐焱专访 · 2020.07.02</p></div><div class="evidence-grid"><figure class="stage-photo"><img src="./images/ship-stage.jpg" alt="《乘风破浪的姐姐》第一季船形舞台的真实演播厅全景" width="1152" height="767" loading="lazy"><figcaption><span>01 / 双层船形舞台</span><span>舞台全景 · 来源：凤凰网娱乐</span></figcaption></figure><div class="evidence-side"><figure><img src="./images/audience-bench.png" alt="船形舞台侧边的长凳观众席与演播厅空间" width="726" height="410" loading="lazy"><figcaption>02 / 船形舞台侧边的长凳观众席</figcaption></figure><div class="source-explanation"><span class="evidence-tag">已核实事实</span><p>设计师在采访中讨论了两侧观众的观看限制，也提到让观众席升降的设想因场地空间受限而未能实现。</p><span class="evidence-tag teaching-tag">教学示意</span><p>本页模型的尺寸、人物位置和眼点高度用于解释原理，不代表节目现场的测绘结果或真实调度。</p><a class="text-link" href="https://ent.ifeng.com/c/7xmj8iRSQ3E" target="_blank" rel="noopener">阅读设计师原始采访 <span>↗</span></a></div></div></div><div class="evidence-footer"><p>看正片时，可以寻找相近的侧面镜头，再判断画面中哪些部分被遮挡。</p><button class="outline-button" data-action="clip">选择本地正片片段 <span>▶</span></button><a href="https://www.mgtv.com/h/338497.html" target="_blank" rel="noopener">芒果TV节目专页 ↗</a></div></div>
+  </section>
+
+  <section id="takeaway" class="chapter takeaway" data-section="takeaway">
+   <div class="takeaway-inner"><p class="eyebrow">06 / 回看与判断</p><h2>设计层次，<br>也设计<em>看见的方式。</em></h2><p class="takeaway-statement">优秀的空间创意，需要和观看条件一起推敲。</p><div class="question-card"><p class="question-kicker">试着判断</p><h3>升高观众眼点，能同时改善所有表演层的视线吗？</h3><div class="answer-options"><button data-answer="yes">能，越高越好</button><button data-answer="depends">不一定，需要分别检查</button></div><p class="answer-feedback" id="answerFeedback" aria-live="polite"></p><a class="text-link" href="#compare">回到模型验证 <span>↗</span></a></div><div class="next-learning"><span>这只是三大任务中的一节。</span><a href="./legacy/index.html" target="_blank" rel="noopener">打开完整 V1 课件 <span>↗</span></a></div></div>
+  </section>
+ </main>
+
+ <div class="scene-tools"><button id="exploreButton" aria-pressed="false">自由观察 <span>↗</span></button><div class="zoom-tools" hidden><button id="zoomOut" aria-label="缩小模型">−</button><button id="zoomIn" aria-label="放大模型">＋</button><button id="resetView">归位</button></div></div><p class="explore-hint" hidden>拖动旋转 · 按钮缩放 · 退出后回到当前章节</p>
+ <aside class="teacher-bar" hidden aria-label="教师播放控制"><button id="previousChapter" aria-label="上一章">←</button><button id="playButton" aria-label="开始自动讲解">▶ <span>播放</span></button><button id="nextChapter" aria-label="下一章">→</button><span class="transport-divider"></span><label for="playSpeed">速度</label><select id="playSpeed"><option value="0.6">0.6×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select><div class="transport-progress"><div id="transportFill"></div></div><span id="teacherChapterLabel">01 / 06</span><button id="closeTeacher" aria-label="收起教师控制">×</button></aside>
+ <footer class="site-footer"><a href="#intro" class="footer-brand">StageLab</a><span>舞台美术基础 · 观演关系</span><button data-action="sources">资料与教学边界 ↗</button><a href="#intro">回到开场 ↑</a></footer>
+
+ <dialog id="resourceDialog" class="resource-dialog"><div class="dialog-header"><span id="dialogLabel">知识与资料</span><button id="closeDialog" aria-label="关闭资料">×</button></div><div id="dialogContent" class="dialog-content"></div></dialog>
+ <dialog id="clipDialog" class="clip-dialog"><div class="dialog-header"><span>看正片 · 第三期第一次公演</span><button id="closeClip" aria-label="关闭片段">×</button></div><div class="clip-content"><p>选择课前准备的本地视频。在同一段表演中观察上下层与侧面观看的关系。</p><label class="file-button" for="clipFile">选择视频文件 <span>＋</span></label><input id="clipFile" type="file" accept="video/*" hidden><video id="clipVideo" controls playsinline preload="metadata" hidden></video><div class="clip-time"><label>起点 / 秒 <input id="clipStart" type="number" min="0" value="0"></label><label>终点 / 秒 <input id="clipEnd" type="number" min="0" placeholder="可选"></label><button id="playClip" class="outline-button" disabled>播放指定片段 ▶</button></div><p id="clipStatus" aria-live="polite">文件仅在本机播放，无需上传。</p><a href="https://www.mgtv.com/h/338497.html" target="_blank" rel="noopener">前往芒果TV节目专页 ↗</a></div></dialog>
+ <script src="./base/engine.js"></script><script src="./base/tween.js"></script><script src="./base/world.js"></script><script src="./base/figures.js"></script><script src="./base/course.js"></script><script src="./vendor/gsap.min.js"></script><script src="./vendor/ScrollTrigger.min.js"></script><script type="module" src="./src/app.js"></script>
+</body>
+</html>
